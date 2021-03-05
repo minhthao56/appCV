@@ -57,6 +57,9 @@ const checkTabButtomHide = (route) => {
   if (nameRoute === 'CreateCV') {
     return false;
   }
+  if (nameRoute === 'GeneralCV1') {
+    return false;
+  }
 
   return true;
 };
