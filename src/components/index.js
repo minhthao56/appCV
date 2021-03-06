@@ -10,3 +10,4 @@ export {default as InputEditCV} from '../components/CV/InputEditCV';
 export {default as CardInfo} from '../components/CV/CardInfo';
 export * from './CV/NeumorphismHeader';
 export {default as NeumorphismBtn} from './CV/NeumorphismBtn';
+export * from './CV/HeaderGeneralCV2';

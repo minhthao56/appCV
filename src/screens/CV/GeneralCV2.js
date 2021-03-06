@@ -9,12 +9,13 @@ import {
   Dimensions,
   ScrollView,
   TouchableOpacity,
+  ImageBackground,
 } from 'react-native';
 import {Neomorph} from 'react-native-neomorph-shadows';
 import {useIsFocused} from '@react-navigation/core';
 
 import ImageAvatar from '../../assets/images/avatar2.png';
-import {NeumorphismBtn, NeumorphismHeader} from '../../components';
+import {HeaderGeneralCV2, NeumorphismBtn} from '../../components';
 import {
   SvgCake,
   SvgEmail,
@@ -25,28 +26,35 @@ import {
   SvgStart,
   SvgStudy,
 } from '../../assets/svg';
-import ImageLight from '../../assets/icons/kiến-thức.png';
+// import ImageLight from '../../assets/icons/kiến-thức.png';
+import BgStudy from '../../assets/images/cv2-1.png';
+import BgKnowleage from '../../assets/images/cv2-2.png';
+import IconKnowleage from '../../assets/icons/icon-know-white.png';
+import BgQuality from '../../assets/images/cv2-3.png';
+import BgSkill from '../../assets/images/cv2-4.png';
+import BgMain from '../../assets/images/bg-cv2.png';
 
 const {width} = Dimensions.get('screen');
-const MainColor = '#3D5578';
+const MainColor = '#204882';
 const RedColor = 'rgba(232,42,0,1)';
-const greenColor = 'rgba(23,131,34,1)';
+// const greenColor = 'rgba(23,131,34,1)';
 
-export const GeneralCV1 = ({navigation}) => {
+export const GeneralCV2 = ({navigation}) => {
   const isFocused = useIsFocused();
   return (
     <>
       {isFocused ? (
-        <StatusBar backgroundColor={'#E0E0E0'} barStyle="dark-content" />
+        <StatusBar backgroundColor={'#EAEAEA'} barStyle="dark-content" />
       ) : null}
-      <View
+      <ImageBackground
         style={{
-          backgroundColor: '#E0E0E0',
           flex: 1,
-        }}>
+          resizeMode: 'stretch',
+        }}
+        source={BgMain}>
         {/* ===========Header============ */}
         <View style={{paddingHorizontal: 12, paddingTop: 6, paddingBottom: 4}}>
-          <NeumorphismHeader navigation={navigation} />
+          <HeaderGeneralCV2 navigation={navigation} />
         </View>
         {/* ===========Header============ */}
         <ScrollView
@@ -57,7 +65,7 @@ export const GeneralCV1 = ({navigation}) => {
             paddingTop: 12,
           }}>
           {/* ========avatar========== */}
-          <Neomorph
+          {/* <Neomorph
             darkShadowColor="#888" // <- set this
             lightShadowColor="white" // <- this
             style={{
@@ -70,9 +78,12 @@ export const GeneralCV1 = ({navigation}) => {
               justifyContent: 'center',
               alignItems: 'center',
               marginBottom: 24,
-            }}>
-            <Image source={ImageAvatar} style={{width: '85%', height: '85%'}} />
-          </Neomorph>
+            }}> */}
+          <Image
+            source={ImageAvatar}
+            style={{width: 200, height: 200, marginBottom: 16}}
+          />
+          {/* </Neomorph> */}
           {/* ========avatar========== */}
           <Text
             style={{
@@ -86,10 +97,11 @@ export const GeneralCV1 = ({navigation}) => {
           <Neomorph
             darkShadowColor="#888" // <- set this
             lightShadowColor="white" // <- this
+            inner
             style={{
               shadowOpacity: 0.5, // <- and this or yours opacity
               shadowRadius: 6,
-              backgroundColor: '#e1e1e1',
+              backgroundColor: '#B4EBE0',
               width: width * 0.9,
               height: 136,
               justifyContent: 'center',
@@ -153,20 +165,39 @@ export const GeneralCV1 = ({navigation}) => {
             </View>
           </Neomorph>
           <View style={{width: '100%', marginBottom: 14}}>
-            <NeumorphismBtn
-              MainColor={MainColor}
-              borderColorInsilde="rgba(131,23,23,1)">
-              <SvgStudy fill="#831717" />
-              <Text
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <ImageBackground
+                source={BgStudy}
                 style={{
-                  color: 'rgba(131,23,23,1)',
-                  fontWeight: '700',
-                  fontSize: 17,
-                  paddingHorizontal: 8,
+                  width: 80,
+                  height: 80,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  zIndex: 2,
                 }}>
-                HỌC VẤN
-              </Text>
-            </NeumorphismBtn>
+                <SvgStudy fill="white" height={26} width={38} />
+              </ImageBackground>
+              <View
+                style={{
+                  borderColor: '#A91C79',
+                  borderWidth: 1.5,
+                  height: 44,
+                  width: 140,
+                  justifyContent: 'center',
+                  borderRadius: 10,
+                  left: -15,
+                }}>
+                <Text
+                  style={{
+                    color: '#A91C79',
+                    fontWeight: '700',
+                    fontSize: 18,
+                    paddingLeft: 24,
+                  }}>
+                  HỌC VẤN
+                </Text>
+              </View>
+            </View>
             <Text style={{color: MainColor, paddingLeft: 16, lineHeight: 21}}>
               <Text style={{color: MainColor, fontWeight: '700'}}>
                 08/2018 – 01/2020
@@ -178,20 +209,39 @@ export const GeneralCV1 = ({navigation}) => {
             </Text>
           </View>
           <View style={{width: '100%'}}>
-            <NeumorphismBtn
-              MainColor={greenColor}
-              borderColorInsilde={greenColor}>
-              <Image source={ImageLight} style={{height: 32, width: 32}} />
-              <Text
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <ImageBackground
+                source={BgKnowleage}
                 style={{
-                  color: greenColor,
-                  fontWeight: '700',
-                  fontSize: 17,
-                  paddingHorizontal: 8,
+                  width: 80,
+                  height: 80,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  zIndex: 2,
                 }}>
-                KIẾN THỨC
-              </Text>
-            </NeumorphismBtn>
+                <Image source={IconKnowleage} style={{height: 30, width: 30}} />
+              </ImageBackground>
+              <View
+                style={{
+                  borderColor: '#026E68',
+                  borderWidth: 1.5,
+                  height: 44,
+                  width: 140,
+                  justifyContent: 'center',
+                  borderRadius: 10,
+                  left: -15,
+                }}>
+                <Text
+                  style={{
+                    color: '#026E68',
+                    fontWeight: '700',
+                    fontSize: 18,
+                    paddingLeft: 24,
+                  }}>
+                  KIẾN THỨC
+                </Text>
+              </View>
+            </View>
             <Text style={{color: MainColor, paddingLeft: 16, marginBottom: 12}}>
               <Text style={{color: MainColor, fontWeight: '700'}}>
                 Các kiến thức tôi đã tích luỹ được trong quá trình học tại
@@ -253,18 +303,40 @@ export const GeneralCV1 = ({navigation}) => {
           </View>
           {/* ============Link tham khao=========== */}
           <View style={{width: '100%'}}>
-            <NeumorphismBtn MainColor={MainColor} borderColorInsilde="#83176B">
-              <SvgHeart fill="#83176B" />
-              <Text
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <ImageBackground
+                source={BgQuality}
                 style={{
-                  color: '#83176B',
-                  fontWeight: '700',
-                  fontSize: 17,
-                  paddingHorizontal: 8,
+                  width: 80,
+                  height: 80,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  zIndex: 2,
                 }}>
-                PHẨM CHẤT
-              </Text>
-            </NeumorphismBtn>
+                <SvgHeart fill="white" height={27} width={27} />
+              </ImageBackground>
+              <View
+                style={{
+                  borderColor: '#32026E',
+                  borderWidth: 1.5,
+                  height: 44,
+                  width: 140,
+                  justifyContent: 'center',
+                  borderRadius: 10,
+                  left: -15,
+                }}>
+                <Text
+                  style={{
+                    color: '#32026E',
+                    fontWeight: '700',
+                    fontSize: 18,
+                    paddingLeft: 24,
+                  }}>
+                  HỌC VẤN
+                </Text>
+              </View>
+            </View>
+
             <Text style={{color: MainColor, lineHeight: 21, marginBottom: 8}}>
               Trong công việc, tôi là 1 người rất trung thực và thẳng thắn, vì
               tính trung thực của mình, khi nói về 1 người hoặc 1 chuyện nào đó,
@@ -327,15 +399,53 @@ export const GeneralCV1 = ({navigation}) => {
               tôi sẽ đưa ra nhận xét 1 cách khách quan nhất
             </Text>
           </View>
+
           {/* ============Skill========= */}
+          <View style={{width: '100%', marginBottom: 16}}>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <ImageBackground
+                source={BgSkill}
+                style={{
+                  width: 80,
+                  height: 80,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  zIndex: 2,
+                }}>
+                <SvgHeart fill="white" height={27} width={27} />
+              </ImageBackground>
+              <View
+                style={{
+                  borderColor: '#C13A00',
+                  borderWidth: 1.5,
+                  height: 44,
+                  width: 140,
+                  justifyContent: 'center',
+                  borderRadius: 10,
+                  left: -15,
+                }}>
+                <Text
+                  style={{
+                    color: '#C13A00',
+                    fontWeight: '700',
+                    fontSize: 18,
+                    paddingLeft: 24,
+                  }}>
+                  KỸ NĂNG
+                </Text>
+              </View>
+            </View>
+          </View>
+
           <Neomorph
-            darkShadowColor="#888" // <- set this
-            lightShadowColor="white" // <- this
+            darkShadowColor="#888"
+            lightShadowColor="white"
+            inner
             style={{
-              shadowOpacity: 0.4, // <- and this or yours opacity
+              shadowOpacity: 0.4,
               shadowRadius: 6,
               borderRadius: 20,
-              backgroundColor: '#DDD',
+              backgroundColor: '#B4EBE0',
               width: width * 0.9,
               height: width * 0.9,
               justifyContent: 'center',
@@ -407,25 +517,24 @@ export const GeneralCV1 = ({navigation}) => {
                     height: 24,
                     width: 100,
                     borderRadius: 20,
-                    borderWidth: 1.5,
-                    borderColor: MainColor,
-                    backgroundColor: '#DDD',
+                    // borderWidth: 1.5,
+                    // borderColor: MainColor,
+                    // backgroundColor: '#DDD',
                   }}>
-                  {/* <Neomorph
-                    inner // <- enable shadow inside of neomorph
+                  <Neomorph
                     darkShadowColor="#555" // <- set this
                     lightShadowColor="white" // <- this
                     style={{
                       shadowRadius: 2,
                       borderRadius: 20,
-                      backgroundColor: '#DDDDDD',
+                      backgroundColor: '#EDE7B3',
                       width: 100,
                       height: 24,
                       justifyContent: 'center',
                       alignItems: 'center',
                       shadowOpacity: 0.5,
                     }}
-                  /> */}
+                  />
                   <View
                     style={{
                       position: 'absolute',
@@ -461,7 +570,11 @@ export const GeneralCV1 = ({navigation}) => {
                   <Text style={{color: MainColor, marginBottom: 8}}>
                     Hoàn thành khóa học Kỹ năng thuyết trình hiệu quả (YOOT APP)
                   </Text>
-                  <NeumorphismBtn height={30} width={128}>
+                  <NeumorphismBtn
+                    height={30}
+                    width={128}
+                    backgroundColor={'#EDE7B3'}
+                    borderColorInsilde={'rgba(255,255,255,0)'}>
                     <Text
                       style={{
                         color: RedColor,
@@ -485,7 +598,11 @@ export const GeneralCV1 = ({navigation}) => {
                   <Text style={{color: MainColor, marginBottom: 8}}>
                     Hoàn thành khóa học kỹ năng làm việc nhóm (YOOT APP)
                   </Text>
-                  <NeumorphismBtn height={30} width={128}>
+                  <NeumorphismBtn
+                    height={30}
+                    width={128}
+                    backgroundColor={'#EDE7B3'}
+                    borderColorInsilde={'rgba(255,255,255,0)'}>
                     <Text
                       style={{
                         color: RedColor,
@@ -502,18 +619,24 @@ export const GeneralCV1 = ({navigation}) => {
           </Neomorph>
           {/*========== Skill ================*/}
           {/* Orther info */}
-          <NeumorphismBtn
+          {/* <NeumorphismBtn
             inner={true}
             height={42}
             width={140}
             borderWidthInsilde={0}
             borderColorInsilde={'rgba(255,255,255, 0)'}
-            marginBottom={16}>
-            <Text style={{color: greenColor, fontWeight: '700', fontSize: 15}}>
-              THÔNG TIN KHÁC
-            </Text>
-          </NeumorphismBtn>
-          <View
+            marginBottom={16}> */}
+          <Text
+            style={{
+              color: MainColor,
+              fontWeight: '700',
+              fontSize: 16,
+              marginBottom: 16,
+            }}>
+            THÔNG TIN KHÁC
+          </Text>
+          {/* </NeumorphismBtn> */}
+          {/* <View
             style={{
               height: width * 0.9,
               width: width * 0.9,
@@ -523,90 +646,79 @@ export const GeneralCV1 = ({navigation}) => {
               alignItems: 'center',
               justifyContent: 'center',
               marginBottom: 16,
-            }}>
-            <View style={{padding: 8}}>
-              <TouchableOpacity
-                style={{
-                  width: 200,
-                  height: 36,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderRadius: 30,
-                  borderWidth: 1.5,
-                  borderColor: MainColor,
-                  marginBottom: 20,
-                }}>
+            }}> */}
+          <View style={{padding: 8}}>
+            <TouchableOpacity
+              style={{
+                width: 250,
+                height: 50,
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 30,
+                // borderWidth: 1.5,
+                // borderColor: MainColor,
+                marginBottom: 20,
+              }}>
+              <NeumorphismBtn
+                height={50}
+                width={250}
+                backgroundColor="#B4E1EB"
+                inner={true}
+                borderColorInsilde={'rgba(255,255,255,0)'}>
                 <Text
                   style={{color: MainColor, fontSize: 15, fontWeight: '700'}}>
                   SỞ THÍCH
                 </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  width: 200,
-                  height: 36,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderRadius: 30,
-                  borderWidth: 1.5,
-                  borderColor: MainColor,
-                  marginBottom: 20,
-                }}>
+              </NeumorphismBtn>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                width: 250,
+                height: 50,
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 30,
+                // borderWidth: 1.5,
+                // borderColor: MainColor,
+                marginBottom: 20,
+              }}>
+              <NeumorphismBtn
+                height={50}
+                width={250}
+                backgroundColor="#EBDFB4"
+                inner={true}
+                borderColorInsilde={'rgba(255,255,255,0)'}>
                 <Text
-                  style={{color: MainColor, fontSize: 15, fontWeight: '700'}}>
+                  style={{color: '#795E00', fontSize: 15, fontWeight: '700'}}>
                   GIẢI THƯỞNG
                 </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  width: 200,
-                  height: 36,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderRadius: 30,
-                  borderWidth: 1.5,
-                  borderColor: MainColor,
-                  marginBottom: 20,
-                }}>
+              </NeumorphismBtn>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                width: 250,
+                height: 50,
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 30,
+                // borderWidth: 1.5,
+                // borderColor: MainColor,
+                marginBottom: 20,
+              }}>
+              <NeumorphismBtn
+                height={50}
+                width={250}
+                backgroundColor="#EAB4EB"
+                inner={true}
+                borderColorInsilde={'rgba(255,255,255,0)'}>
                 <Text
-                  style={{color: MainColor, fontSize: 15, fontWeight: '700'}}>
+                  style={{color: '#560058', fontSize: 15, fontWeight: '700'}}>
                   HOẠT ĐỘNG
                 </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  width: 200,
-                  height: 36,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderRadius: 30,
-                  borderWidth: 1.5,
-                  borderColor: MainColor,
-                  marginBottom: 20,
-                }}>
-                <Text
-                  style={{color: MainColor, fontSize: 15, fontWeight: '700'}}>
-                  PORFOLIO
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  width: 200,
-                  height: 36,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderRadius: 30,
-                  borderWidth: 1.5,
-                  borderColor: MainColor,
-                  marginBottom: 20,
-                }}>
-                <Text
-                  style={{color: MainColor, fontSize: 15, fontWeight: '700'}}>
-                  MỤC TIÊU NGHỀ NGHIỆP
-                </Text>
-              </TouchableOpacity>
-            </View>
+              </NeumorphismBtn>
+            </TouchableOpacity>
           </View>
+          {/* </View> */}
           {/* Orther info */}
           {/* Type CV */}
           <View
@@ -625,7 +737,8 @@ export const GeneralCV1 = ({navigation}) => {
               inner={true}
               height={30}
               width={190}
-              borderColorInsilde={'rgba(255,255,255,0)'}>
+              borderColorInsilde={'rgba(255,255,255,0)'}
+              backgroundColor={'#B4EBE0'}>
               <View style={{flexDirection: 'row'}}>
                 <SvgStart />
                 <SvgStart />
@@ -667,7 +780,7 @@ export const GeneralCV1 = ({navigation}) => {
 
           {/* Type CV */}
         </ScrollView>
-      </View>
+      </ImageBackground>
     </>
   );
 };

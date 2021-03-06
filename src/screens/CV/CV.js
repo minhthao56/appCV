@@ -30,7 +30,7 @@ export const CV = ({navigation}) => {
     setIsShowModalDelete(true);
   };
   const handleDetailCV = () => {
-    navigation.navigate('GeneralCV1');
+    navigation.navigate('GeneralCV2');
   };
   return (
     <>

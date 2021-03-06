@@ -11,3 +11,4 @@ export * from './CV/EditInfo';
 export * from './CV/EditIntro';
 export * from './CV/EditHobby';
 export * from './CV/GeneralCV1';
+export * from './CV/GeneralCV2';

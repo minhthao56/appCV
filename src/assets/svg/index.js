@@ -13,3 +13,4 @@ export {default as SvgMusic} from '../svg/SvgMusic';
 export {default as SvgBack} from '../svg/SvgBack';
 export {default as SvgStudy} from '../svg/SvgStudy';
 export {default as SvgHeart} from '../svg/SvgHeart';
+export {default as SvgStart} from '../svg/SvgStart';

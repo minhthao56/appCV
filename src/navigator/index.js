@@ -24,6 +24,7 @@ import {
   GeneralCV,
   EditHobby,
   GeneralCV1,
+  GeneralCV2,
 } from '../screens';
 import {SvgHome, SvgJob, SvgCV, SvgProfile} from '../assets/svg';
 
@@ -60,6 +61,9 @@ const checkTabButtomHide = (route) => {
   if (nameRoute === 'GeneralCV1') {
     return false;
   }
+  if (nameRoute === 'GeneralCV2') {
+    return false;
+  }
 
   return true;
 };
@@ -72,13 +76,14 @@ export const Navgators = () => {
         initialRouteName={'CV'}>
         <CVStack.Screen name="CV" component={CV} />
         <CVStack.Screen name="CreateCV" component={CreateCV} />
-        <CVStack.Screen name="GeneralCV" component={GeneralCV} />
         <CVStack.Screen name="EditCV" component={EditCV} />
         <CVStack.Screen name="EditGoal" component={EditGoal} />
         <CVStack.Screen name="EditInfo" component={EditInfo} />
         <CVStack.Screen name="EditIntro" component={EditIntro} />
         <CVStack.Screen name="EditHobby" component={EditHobby} />
+        <CVStack.Screen name="GeneralCV" component={GeneralCV} />
         <CVStack.Screen name="GeneralCV1" component={GeneralCV1} />
+        <CVStack.Screen name="GeneralCV2" component={GeneralCV2} />
       </CVStack.Navigator>
     );
   }
